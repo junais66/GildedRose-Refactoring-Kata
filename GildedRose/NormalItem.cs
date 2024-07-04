@@ -6,10 +6,24 @@ public class NormalItem: UpdatableItem
 
     public override void Update()
     {
-        
+        /*
         if (item.SellIn < 0 && item.Quality > 0) item.Quality = item.Quality - 1;
         if (item.Quality > 0) item.Quality = item.Quality - 1;
         item.SellIn = item.SellIn - 1;
+        */
+
+        //Refactored
+        if (item.Quality > 0)
+        {
+            item.Quality--;
+        }
+
+        item.SellIn--;
+
+        if (item.SellIn < 0 && item.Quality > 0)
+        {
+            item.Quality--;
+        }
         
     }
 }

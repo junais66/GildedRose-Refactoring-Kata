@@ -6,9 +6,35 @@ public class BackStagePasses : UpdatableItem
 
     public override void Update()
     {
+        /*
        if (item.Quality < 50) item.Quality = item.Quality + 1;
        if (item.Quality < 50 && item.SellIn < 11) item.Quality = item.Quality + 1;
        if (item.Quality < 50 && item.SellIn < 6) item.Quality = item.Quality + 1;
        if (item.SellIn <= 0) item.Quality = item.Quality - item.Quality;
+       */
+
+        //Refactored
+        if (item.Quality < 50)
+        {
+            item.Quality++;
+
+            if (item.SellIn < 11 && item.Quality < 50)
+            {
+                item.Quality++;
+            }
+
+            if (item.SellIn < 6 && item.Quality < 50)
+            {
+                item.Quality++;
+            }
+        }
+
+        item.SellIn--;
+
+        if (item.SellIn < 0)
+        {
+            item.Quality = 0;
+        }
+       
     }
 }

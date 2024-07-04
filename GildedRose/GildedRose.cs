@@ -36,15 +36,20 @@ public class GildedRose
         || kv.Key.Equals("Default")).Value(item); 
     }
 }
-
+//Tests Passed
 /*
-[xUnit.net 00:00:00.20]     GildedRoseTests.ApprovalTest.ThirtyDays [FAIL]
-  Failed GildedRoseTests.ApprovalTest.ThirtyDays [126 ms]
-  Error Message:
-   VerifyException : Directory: /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests
-NotEqual:
-  - Received: ApprovalTest.ThirtyDays.received.txt
-    Verified: ApprovalTest.ThirtyDays.verified.txt
-    
-Failed!  - Failed:     1, Passed:    15, Skipped:     0, Total:    16, Duration: 129 ms - GildedRoseTests.dll (net8.0)
+dotnet test
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  GildedRose -> /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.dll
+  GildedRoseTests -> /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/bin/Debug/net8.0/GildedRoseTests.dll
+Test run for /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/bin/Debug/net8.0/GildedRoseTests.dll (.NETCoreApp,Version=v8.0)
+Microsoft (R) Test Execution Command Line Tool Version 17.10.0 (arm64)
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:    16, Skipped:     0, Total:    16, Duration: 42 ms - GildedRoseTests.dll (net8.0)
+
 */
