@@ -105,6 +105,51 @@ public class GildedRoseTest
         Assert.Equal(10, sulfurasitem.SellIn);
     }
 
+
+    //"Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+    [Theory]
+    [InlineData(20)]
+    [InlineData(11)]
+    public void UpdateQuality_should_IncreseQualityByOne_When_ItemIsBackstagePasses(int sellIn)
+    {
+        
+        var backstagePassesItem = CreateItem("Backstage passes to a TAFKAL80ETC concert", 10, sellIn);
+        var APP = CreateGildedRose(backstagePassesItem);
+        // when the quality update occurs
+        APP.UpdateQuality();
+        // Then the quality of the Backstage Passes increases by 1
+        Assert.Equal(11, backstagePassesItem.Quality);
+    }
+    [Theory]
+    [InlineData(5)]
+    [InlineData(1)]
+    [InlineData(3)]
+    public void UpdateQuality_Should_IncreseQualityByThree_When_ItemIsBackstagePassesAndSellInISLessThan6ButGreaterThan10(int sellIn)
+    {
+        // Given the item is Backstage Passes and the Sell In value is greater than 10
+        var backstagePassesItem = CreateItem("Backstage passes to a TAFKAL80ETC concert", 10, sellIn);
+        var APP = CreateGildedRose(backstagePassesItem);
+        // when the quality update occurs
+        APP.UpdateQuality();
+        // Then the quality of the Backstage Passes increases by 1
+        Assert.Equal(13, backstagePassesItem.Quality);
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-2)]
+    public void UpdateQuality_Should_DecreaseQualityT00_When_ItemIsBackstagePassesAndSellInISLessThanrEqualTo0(int sellIn)
+    {
+        // Given the item is Backstage Passes and the Sell In value is greater than 10
+        var backstagePassesItem = CreateItem("Backstage passes to a TAFKAL80ETC concert", 10, sellIn);
+        var APP = CreateGildedRose(backstagePassesItem);
+        // when the quality update occurs
+        APP.UpdateQuality();
+        // Then the quality of the Backstage Passes increases by 1
+        Assert.Equal(0, backstagePassesItem.Quality);
+    }
+
+
     //Helper functions
     public static Item CreateItem(string name, int quality, int sellIn) =>
     new Item { Name = name, Quality = quality, SellIn = sellIn };
