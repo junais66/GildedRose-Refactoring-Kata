@@ -19,29 +19,89 @@ public class GildedRose
             else if (item.Name == "Backstage passes to a TAFKAL80ETC concert") BackstagePassesUpdate(item);
             else if (item.Name == "Sulfuras, Hand of Ragnaros") SulfurasUpdate(item);
             else NormalUpdate(item);
-          
+
         }
     }
+
     public void AgedBrieUpdate(Item item)
+    {
+        new AgedBrieItem(item).Update();
+    }
+    public void BackstagePassesUpdate(Item item)
+    {
+        new BackStagePasses(item).Update();
+    }
+
+    public void SulfurasUpdate(Item item)
+    {
+        new SulfurasItem(item).Update();
+    }
+
+    public void NormalUpdate(Item item)
+    {
+        new NormalItem(item).Update();
+    }
+   
+}
+
+public class AgedBrieItem
+{
+    private Item item;
+
+    public AgedBrieItem(Item item)
+    {
+        this.item = item;
+    }
+    public void Update()
     {
         if (item.SellIn < 0 && item.Quality < 50) item.Quality = item.Quality + 1;
         if (item.Quality < 50) item.Quality = item.Quality + 1;
+
     }
-    public void BackstagePassesUpdate(Item item)
+}
+
+public class BackStagePasses
+{
+    private Item item;
+    public BackStagePasses(Item item)
+    {
+        this.item = item;
+    }
+
+    public void Update()
     {
         if (item.Quality < 50) item.Quality = item.Quality + 1;
         if (item.Quality < 50 && item.SellIn < 11) item.Quality = item.Quality + 1;
         if (item.Quality < 50 && item.SellIn < 6) item.Quality = item.Quality + 1;
         if (item.SellIn <= 0) item.Quality = item.Quality - item.Quality;
     }
-    public void SulfurasUpdate(Item item)
+}
+public class SulfurasItem
+{
+    private Item item;
+    public SulfurasItem(Item item)
+    {
+        this.item = item;
+    }
+
+    public void Update()
     {
         return;
     }
-    public void NormalUpdate(Item item)
+}
+
+public class NormalItem
+{
+    private Item item;
+    public NormalItem(Item item)
     {
-        if(item.Quality > 0) item.Quality = item.Quality - 1;
+        this.item = item;
+    }
+
+    public void Update()
+    {
+        if (item.SellIn < 0 && item.Quality > 0) item.Quality = item.Quality - 1;
+        if (item.Quality > 0) item.Quality = item.Quality - 1;
         item.SellIn = item.SellIn - 1;
-        if(item.SellIn < 0 && item.Quality > 0) item.Quality = item.Quality - 1;
     }
 }
