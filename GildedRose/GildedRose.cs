@@ -12,7 +12,6 @@ public class GildedRose
     {
         _items = items;
     }
-
     public Dictionary<string, Func<Item, UpdatableItem>> UpdatableItemsTable = new()
     {
         { "Aged Brie", (item) => new AgedBrieItem(item) },
@@ -36,7 +35,6 @@ public class GildedRose
     }
 
     /*
-
     public Dictionary<string, Func<Item, UpdatableItem>> UpdatableItemsTable = new()
     {
         { "Aged Brie", (item)=> new AgedBrieItem(item) },
