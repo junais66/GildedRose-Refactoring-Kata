@@ -16,7 +16,6 @@ public class GildedRoseTest
 
         //When the quality update
         APP.UpdateQuality();
-
         // then the sellIn is 4
         Assert.Equal(4, item.SellIn);
     }
@@ -30,7 +29,6 @@ public class GildedRoseTest
         var APP = CreateGildedRose(item);
 
         APP.UpdateQuality();
-
         // then the quality value is 4
         Assert.Equal(4, item.Quality);
     }
@@ -44,7 +42,6 @@ public class GildedRoseTest
         var APP = CreateGildedRose(zeroSellInItem);
 
         APP.UpdateQuality();
-
         // Then the quality degraded twice as fast
         Assert.Equal(1, zeroSellInItem.Quality);
     }
@@ -58,17 +55,14 @@ public class GildedRoseTest
         var APP = CreateGildedRose(zeroQualityItem);
 
         APP.UpdateQuality();
-
         // Then the quality is still o
         Assert.Equal(0, zeroQualityItem.Quality);
     }
-
      //"Aged Brie" actually increases in Quality the older it gets
     [Fact]
     public void UpdateQuality_Should_IncreseQualityByOnewhen_ItemIsAgedBriek()
     {
         //Given the item name is "Aged Brie" and it's quality is 1
-
         var agedBriItem = CreateItem("Aged Brie", 1, 5);
         var APP = CreateGildedRose(agedBriItem);
 
@@ -84,10 +78,31 @@ public class GildedRoseTest
         var APP = CreateGildedRose(agedBriItem);
 
         APP.UpdateQuality();
-
-        // Then the quality of the item should remain 509
+        // Then the quality of the item should remain 50
         Assert.Equal(50, agedBriItem.Quality);
-        
+    }
+    //"Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+    [Fact]
+    public void UpdateQuality_should_KeepQualityAt10_when_SulfurasQualityIsAlready10()
+    {
+        // Given the item is named "Sulfuras" and has a quality of 10
+        var sulfurasitem = CreateItem("Sulfuras, Hand of Ragnaros", 10, 5);
+        var APP = CreateGildedRose(sulfurasitem);
+
+        APP.UpdateQuality();
+        // Then the quality of the Sulfuras is still 10
+        Assert.Equal(10, sulfurasitem.Quality);
+    }
+    [Fact]
+    public void UpdateQuality_Should_KeepSellInAt10_When_SulfurasSellInIsAlready10()
+    {
+        // Given the item is named "Sulfuras" and has a quality of 10
+        var sulfurasitem = CreateItem("Sulfuras, Hand of Ragnaros", 5, 10);
+        var APP = CreateGildedRose(sulfurasitem);
+
+        APP.UpdateQuality();
+        // Then the SellIn of the Sulfuras is still 10
+        Assert.Equal(10, sulfurasitem.SellIn);
     }
 
     //Helper functions
