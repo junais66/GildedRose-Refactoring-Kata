@@ -150,6 +150,11 @@ public class GildedRoseTest
     }
 
 
+    //"Conjured" items degrade in Quality twice as fast as normal items
+    //We have recently signed a supplier of conjured items. This requires an update to our system:
+    //Conjured Item ia a New Requirement and need to be impliment later// 
+
+
     //Helper functions
     public static Item CreateItem(string name, int quality, int sellIn) =>
     new Item { Name = name, Quality = quality, SellIn = sellIn };
