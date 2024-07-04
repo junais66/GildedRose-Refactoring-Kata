@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GildedRoseTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d3d4d2db12c1d13cf26a5c4ab852d49880e04b4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcbf61341f2946f39dcd106f66b2032c712bedd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("GildedRoseTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GildedRoseTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
