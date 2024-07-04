@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using System.Collections.Generic;
 using GildedRoseKata;
+using System;
 
 namespace GildedRoseTests;
 
@@ -148,27 +149,46 @@ public class GildedRoseTest
         // Then the quality of the Backstage Passes increases by 1
         Assert.Equal(0, backstagePassesItem.Quality);
     }
+    
 
-    //All test Passed
-    /*
-    dotnet test
-    Determining projects to restore...
-    All projects are up-to-date for restore.
-    GildedRose -> /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.dll
-    GildedRoseTests -> /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/bin/Debug/net8.0/GildedRoseTests.dll
-    Test run for /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/bin/Debug/net8.0/GildedRoseTests.dll (.NETCoreApp,Version=v8.0)
-    Microsoft (R) Test Execution Command Line Tool Version 17.10.0 (arm64)
-    Copyright (c) Microsoft Corporation.  All rights reserved.
-    Starting test execution, please wait...
-    A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:    16, Skipped:     0, Total:    16, Duration: 48 ms - GildedRoseTests.dll (net8.0)
-
-    */
-
-
+    [Fact]
     //"Conjured" items degrade in Quality twice as fast as normal items
-    //We have recently signed a supplier of conjured items. This requires an update to our system:
-    //Conjured Item ia a New Requirement and need to be impliment later// 
+    public void UpdateQuality_Should_DecreaseQualityBy2_WhenItemConjured()
+    {
+        // Given the item is "Conjured" and its quality is 4
+        var conjuredItem = CreateItem("Conjured", 4, 5);
+        var app = CreateGildedRose(conjuredItem);
+
+        // Configure the update item dictionary
+        var newUpdateItemsDictionary = new Dictionary<string, Func<Item, UpdatableItem>>
+        {
+            {"Conjured", (item) => new ConjuredItem(item)}
+        };
+        app.UpdatableItemsTable = newUpdateItemsDictionary;
+
+        // Call the method under test
+        app.UpdateQuality();
+
+        // Assert the expected quality after update
+        Assert.Equal(3, conjuredItem.Quality);
+    }
+
+    [Fact]
+    //"Conjured" items decrese sellIn by one
+    public void UpdateQuality_Should_DecreaseSellInBy1_WhenItemConjured()
+    {
+        var conjuredItem = CreateItem("Conjured", 5, 4);
+        var APP = CreateGildedRose(conjuredItem);
+        var newUpdateItemsDictioary = new Dictionary<string, Func<Item, UpdatableItem>>
+            {
+               {"Conjured", (item) => new ConjuredItem(item  )}
+            };
+        APP.UpdatableItemsTable = newUpdateItemsDictioary;
+
+        APP.UpdateQuality();  
+
+        Assert.Equal(3, conjuredItem.SellIn);
+    }
 
 
     //Helper functions
