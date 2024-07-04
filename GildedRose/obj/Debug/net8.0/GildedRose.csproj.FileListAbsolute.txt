@@ -1,0 +1,15 @@
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.deps.json
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.runtimeconfig.json
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.dll
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/bin/Debug/net8.0/GildedRose.pdb
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.GeneratedMSBuildEditorConfig.editorconfig
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.AssemblyInfoInputs.cache
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.AssemblyInfo.cs
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.csproj.CoreCompileInputs.cache
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.sourcelink.json
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.dll
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/refint/GildedRose.dll
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.pdb
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/GildedRose.genruntimeconfig.cache
+/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/obj/Debug/net8.0/ref/GildedRose.dll

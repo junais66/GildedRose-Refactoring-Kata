@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GildedRoseKata
-build_property.ProjectDir = /Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRose/
+build_property.ProjectDir = /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

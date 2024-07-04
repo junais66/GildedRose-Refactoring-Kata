@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj": {}
+    "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj": {}
   },
   "projects": {
     "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRose/GildedRose.csproj": {
@@ -62,14 +62,14 @@
         }
       }
     },
-    "/Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj": {
+    "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj",
+        "projectUniqueName": "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj",
         "projectName": "GildedRoseTests",
-        "projectPath": "/Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj",
+        "projectPath": "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/GildedRoseTests.csproj",
         "packagesPath": "/Users/muhammedjunaismk/.nuget/packages/",
-        "outputPath": "/Users/muhammedjunaismk/Desktop/ADEK SYSTEM TEST/GildedRose-Refactoring-Kata/GildedRoseTests/obj/",
+        "outputPath": "/Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/muhammedjunaismk/.nuget/NuGet/NuGet.Config"

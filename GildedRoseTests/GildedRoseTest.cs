@@ -63,6 +63,33 @@ public class GildedRoseTest
         Assert.Equal(0, zeroQualityItem.Quality);
     }
 
+     //"Aged Brie" actually increases in Quality the older it gets
+    [Fact]
+    public void UpdateQuality_Should_IncreseQualityByOnewhen_ItemIsAgedBriek()
+    {
+        //Given the item name is "Aged Brie" and it's quality is 1
+
+        var agedBriItem = CreateItem("Aged Brie", 1, 5);
+        var APP = CreateGildedRose(agedBriItem);
+
+        APP.UpdateQuality();
+
+        Assert.Equal(2, agedBriItem.Quality);
+    }
+    [Fact]
+    public void UpdateQuality_Should_KeepQualityAt50_When_AgedBrieQualityIsAlready50()
+    {
+        // Given the quality of an item is already 50
+        var agedBriItem = CreateItem("Aged Brie", 50, 5);
+        var APP = CreateGildedRose(agedBriItem);
+
+        APP.UpdateQuality();
+
+        // Then the quality of the item should remain 509
+        Assert.Equal(50, agedBriItem.Quality);
+        
+    }
+
     //Helper functions
     public static Item CreateItem(string name, int quality, int sellIn) =>
     new Item { Name = name, Quality = quality, SellIn = sellIn };
