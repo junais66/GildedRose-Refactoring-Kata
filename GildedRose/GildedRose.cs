@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedRoseKata;
 
@@ -11,97 +13,38 @@ public class GildedRose
         _items = items;
     }
 
+    public Dictionary<string, Func<Item, UpdatableItem>> UpdatableItemsTable = new()
+    {
+        { "Aged Brie", (item)=> new AgedBrieItem(item) },
+        { "Backstage passes to a TAFKAL80ETC concert", (item)=> new BackStagePasses(item) },
+        { "Sulfuras, Hand of Ragnaros", (item)=> new UpdatableItem(item) },
+        { "Default", (item)=> new NormalItem(item) }
+    };
+
     public void UpdateQuality()
     {
         foreach (var item in _items)
         {
-            if (item.Name == "Aged Brie") AgedBrieUpdate(item);
-            else if (item.Name == "Backstage passes to a TAFKAL80ETC concert") BackstagePassesUpdate(item);
-            else if (item.Name == "Sulfuras, Hand of Ragnaros") SulfurasUpdate(item);
-            else NormalUpdate(item);
 
+            CreateUpdatableItem(item).Update();
         }
     }
 
-    public void AgedBrieUpdate(Item item)
+    public  UpdatableItem CreateUpdatableItem(Item item)
     {
-        new AgedBrieItem(item).Update();
-    }
-    public void BackstagePassesUpdate(Item item)
-    {
-        new BackStagePasses(item).Update();
-    }
-
-    public void SulfurasUpdate(Item item)
-    {
-        new SulfurasItem(item).Update();
-    }
-
-    public void NormalUpdate(Item item)
-    {
-        new NormalItem(item).Update();
-    }
-   
-}
-
-public class AgedBrieItem
-{
-    private Item item;
-
-    public AgedBrieItem(Item item)
-    {
-        this.item = item;
-    }
-    public void Update()
-    {
-        if (item.SellIn < 0 && item.Quality < 50) item.Quality = item.Quality + 1;
-        if (item.Quality < 50) item.Quality = item.Quality + 1;
-
+        return UpdatableItemsTable.FirstOrDefault((kv) => kv.Key.Equals(item.Name)
+        || kv.Key.Equals("Default")).Value(item); 
     }
 }
 
-public class BackStagePasses
-{
-    private Item item;
-    public BackStagePasses(Item item)
-    {
-        this.item = item;
-    }
-
-    public void Update()
-    {
-        if (item.Quality < 50) item.Quality = item.Quality + 1;
-        if (item.Quality < 50 && item.SellIn < 11) item.Quality = item.Quality + 1;
-        if (item.Quality < 50 && item.SellIn < 6) item.Quality = item.Quality + 1;
-        if (item.SellIn <= 0) item.Quality = item.Quality - item.Quality;
-    }
-}
-public class SulfurasItem
-{
-    private Item item;
-    public SulfurasItem(Item item)
-    {
-        this.item = item;
-    }
-
-    public void Update()
-    {
-        return;
-    }
-}
-
-public class NormalItem
-{
-    private Item item;
-    public NormalItem(Item item)
-    {
-        this.item = item;
-    }
-
-    public void Update()
-    {
-        if (item.SellIn < 0 && item.Quality > 0) item.Quality = item.Quality - 1;
-        if (item.Quality > 0) item.Quality = item.Quality - 1;
-        item.SellIn = item.SellIn - 1;
-    }
-}
+/*
+[xUnit.net 00:00:00.20]     GildedRoseTests.ApprovalTest.ThirtyDays [FAIL]
+  Failed GildedRoseTests.ApprovalTest.ThirtyDays [126 ms]
+  Error Message:
+   VerifyException : Directory: /Users/muhammedjunaismk/Desktop/Adek System Test/GildedRose-Refactoring-Kata/GildedRoseTests
+NotEqual:
+  - Received: ApprovalTest.ThirtyDays.received.txt
+    Verified: ApprovalTest.ThirtyDays.verified.txt
+    
+Failed!  - Failed:     1, Passed:    15, Skipped:     0, Total:    16, Duration: 129 ms - GildedRoseTests.dll (net8.0)
+*/
